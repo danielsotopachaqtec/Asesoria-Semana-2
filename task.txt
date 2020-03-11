@@ -1,16 +1,45 @@
 1)¿Cuál es el código que se muestra a continuación?
 alert( null || 2 || undefined );
+R: La respuesta es 2, el primer valor es verdadero.
 2) ¿Cuál es el resultado de las alertas?
 alert( alert(1) || 2 || alert(3) );
+R:  primero 1, luego 2.
+La llamada del alert no devuelve un valor. O, en otras palabras, devuelve indefinido.
+El primer OR || evalúa su alert de operando izquierdo (1). Eso muestra el primer mensaje con 1.
+el alert vuelve indefinida, por lo que OR pasa al segundo operando en busca de un valor verdadero.
+El segundo operando 2 es verdadero, por lo que la ejecución se detiene, se devuelve 2 y luego se muestra mediante el alert externa.
+No habrá 3, porque la evaluación no llega a el alert (3).
 3) ¿Qué va a mostrar este código?
 alert( 1 && null && 2 );
+R: nulo, porque es el primer valor falso de la lista.
 4) ¿Cuál es el resultado de las alertas?
 alert( alert(1) && alert(2) );
+R: 1, y luego indefinida
+La llamada de alerta regresa indefinida (solo muestra un mensaje, por lo que no hay una devolución significativa).
+Por eso, && evalúa el operando izquierdo (salidas 1) e inmediatamente se detiene, porque indefinido es un valor falso. Y && busca un valor falso y lo devuelve, así que ya está hecho.
 5) El resultado de OR AND OR
 alert( null || 2 && 3 || 4 );
+R: 3.
+La precedencia de AND && es mayor que ||, por lo que se ejecuta primero.
+El resultado de 2 && 3 = 3, por lo que la expresión se convierte en: null || 3 || 4
+Ahora el resultado es el primer valor verdadero: 3.
 6) Escriba una condición de "si" para verificar que la edad sea entre 14 y 90 inclusive.
 "Inclusive" significa que la edad puede alcanzar los bordes 14 o 90.
+R: if (age >= 14 && age <= 90)
 7) ¿Cuál de estas alertas se ejecutará? ¿Cuáles serán los resultados de las expresiones dentro si (...)?
 if (-1 || 0) alert( 'first' );
 if (-1 && 0) alert( 'second' );
+if (null || -1 && 1) alert( 'third' );
+R: // Se ejecutra.
+// El resultado de -1 || 0 = -1, verdadero
+if (-1 || 0) alert( 'first' );
+
+// No ejecuuta
+// -1 && 0 = 0, Falso
+if (-1 && 0) alert( 'second' );
+
+// Ejectura
+// Operador && tiene mayor precedencia que ||
+// entonces -1 && 1 ejectura primero, dándonos la cadena:
+// null || -1 && 1  ->  null || 1  ->  1
 if (null || -1 && 1) alert( 'third' );
